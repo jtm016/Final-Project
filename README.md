@@ -1,5 +1,4 @@
-# Final-Project
-Final Project for CS1051
+
 #My final project is the game Chutes and Ladders. Using Python Turtle Graphics, the seperate turtles create different items in the game. 
 #When running the game, you are asked to input the amount of players that are playing.
 #Based off the input, the amount of turtles is used.
