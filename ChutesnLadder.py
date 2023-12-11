@@ -88,7 +88,7 @@ greenTurtle.speed(10)
 greenTurtle.color("green")
 greenTurtle.showturtle()
 #ChutesDict is for values going down
-chutesDict = {5:1,17:2,29:3,48:26,49:11,56:53,62:19,64:60,87:24,93:73,95:75}
+chutesDict = {17:2,29:3,48:26,49:11,56:53,62:19,64:60,87:24,93:73,95:75}
 #LaddersDict values going up
 laddersDict = {1:38,4:14,9:31,21:42,28:84,36:44,51:67,71:91,80:100}
 winscore = 100
@@ -173,8 +173,8 @@ def makeLeftSquare():
         gridTurtle.right(90)
     SquareNum+=1
     tpos = gridTurtle.position()
-    writeNuminBox(SquareNum,tpos[0] - SQUARE_SIZE/2, tpos[1] + SQUARE_SIZE/3)
-    positionDict[SquareNum] = tpos[0] - SQUARE_SIZE/2, tpos[1] + SQUARE_SIZE/3
+    writeNuminBox(SquareNum,tpos[0] - SQUARE_SIZE/2, tpos[1] + SQUARE_SIZE/2)
+    positionDict[SquareNum] = tpos[0] - SQUARE_SIZE/2, tpos[1] + SQUARE_SIZE/2
 
 def createRightRow():
     gridTurtle.setheading(0)
@@ -310,10 +310,19 @@ def checkifGameOver():
     for player in playerPos:
         if playerPos[player] == winscore:
             winningMessage = player.upper() + ": You Won the game"
+            msgTurtle.goto(offset-400,offset/2)
             msgTurtle.write(winningMessage, align = "right", font=("Arial", 18, "bold"))
+            gridTurtle.clear()
+            numTurtle.clear()
+            chuteTurtle.clear()
+            ladderTurtle.clear()
+            greenTurtle.hideturtle()
+            redTurtle.hideturtle()
+            blueTurtle.hideturtle()
+            yellowTurtle.hideturtle()
             sleep(4)
             exit()
-            #print("You won", player, playerPos[player])
+            
         
 
 
@@ -329,15 +338,10 @@ createGrid()
 placeChutes()
 placeLadders()
 CreateSpinner()
-RandomizeTurns(0,0)
-""" spinButton.onclick(SpinIt) 
-RandomizeButton.onclick(RandomizeTurns)  """
+spinButton.onclick(SpinIt) 
+RandomizeButton.onclick(RandomizeTurns) 
 
-while True:
-    SpinIt(100,100)
-    print(playerPos)
 
-print(playerPos)
 
 turtle.done()
 
